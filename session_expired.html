@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Expired</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="joinus.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            background: #fff;
+        }
+        .bg-shape {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .shape1 {
+            top: -120px;
+            left: -120px;
+            width: 340px;
+            height: 340px;
+            background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
+            border-radius: 50%;
+            opacity: 0.18;
+        }
+        .shape2 {
+            bottom: -120px;
+            right: -120px;
+            width: 340px;
+            height: 340px;
+            background: linear-gradient(135deg, #007bff 60%, #00c6ff 100%);
+            border-radius: 50%;
+            opacity: 0.18;
+        }
+        .message-box {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            z-index: 2;
+        }
+        .message-box h1 {
+            color: #d9534f;
+            margin-bottom: 16px;
+        }
+        .message-box p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .message-box a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .message-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        // Prevent back button from working
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function () {
+            window.history.pushState(null, "", window.location.href);
+        };
+
+        // Redirect after 3 seconds
+        setTimeout(function() {
+            window.location.replace('joinus.php');
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="message-box">
+        <h1>Session Expired</h1>
+        <p>Your session has expired. You will be redirected to the login page in a few seconds.</p>
+        <p>If you are not redirected, <a href="joinus.php">click here</a>.</p>
+    </div>
+</body>
+</html>
